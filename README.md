@@ -1,2 +1,4 @@
 # conways-game-of-life
 My implementation of Conway's Game of Life, written in C using the Raylib library.
+
+Compiles using C23.
