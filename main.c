@@ -11,16 +11,19 @@ int main()
     SetTargetFPS(targetFPS);
 
     bool shouldPlay = false;
+    int elapsedTime = 0;
 
     while (!WindowShouldClose())
     {
+        elapsedTime++;
         BeginDrawing();
         ClearBackground(BLACK);
 
         Vector2 mousePos = GetMousePosition();
 
-        if (shouldPlay)
+        if (shouldPlay && elapsedTime % 10 == 0)
         {
+            elapsedTime = 0;
             update_grid(grid);
         }
 
