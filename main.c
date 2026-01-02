@@ -12,20 +12,40 @@ int main()
 
     bool shouldPlay = false;
     int elapsedTime = 0;
+    int tickProgress = 10;
 
     while (!WindowShouldClose())
     {
+        // Update
         elapsedTime++;
-        BeginDrawing();
-        ClearBackground(BLACK);
 
         Vector2 mousePos = GetMousePosition();
+        int tempX = mousePos.x / squareSize;
+        int tempY = mousePos.y / squareSize;
 
-        if (shouldPlay && elapsedTime % 10 == 0)
+        if (IsMouseButtonDown(0))
+        {
+            grid[tempX][tempY] = true;
+        }
+        else if (IsMouseButtonDown(1))
+        {
+            grid[tempX][tempY] = false;
+        }
+
+        if (IsKeyPressed(KEY_SPACE))
+        {
+            shouldPlay = !shouldPlay;
+        }
+
+        if (shouldPlay && elapsedTime % tickProgress == 0)
         {
             elapsedTime = 0;
             update_grid(grid);
         }
+
+        // Draw
+        BeginDrawing();
+        ClearBackground(BLACK);
 
         for (int x = 0; x < screenWidth; x += squareSize)
         {
@@ -44,18 +64,6 @@ int main()
                 // Draws the grid lines
                 DrawRectangleLines(x, y, squareSize, squareSize, GRAY);
             }
-        }
-
-        if (IsMouseButtonPressed(0))
-        {
-            int tempX = mousePos.x / squareSize;
-            int tempY = mousePos.y / squareSize;
-            grid[tempX][tempY] = true;
-        }
-
-        if (IsKeyPressed(KEY_SPACE))
-        {
-            shouldPlay = !shouldPlay;
         }
 
         EndDrawing();

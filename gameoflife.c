@@ -1,7 +1,7 @@
 #include "gameoflife.h"
 #include <stdio.h>
 
-void update_grid(bool grid[][24])
+void update_grid(bool grid[][screenHeight / squareSize])
 {
     constexpr int gridWidth = screenWidth / squareSize;
     constexpr int gridHeight = screenHeight / squareSize;
