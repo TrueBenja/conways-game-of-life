@@ -8,9 +8,10 @@ To compile and run the game, do as follows:
 Install Raylib on your system. Then:
 
 ```console
-$ mkdir build
-$ cd build
-$ cmake --build .
+$ mkdir build && \
+cd build && \
+cmake .. && \
+cmake --build .
 ```
 
 You can use space to pause and unpause the game, and left mouse click to activate a cell.
