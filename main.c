@@ -1,9 +1,10 @@
 #include "raylib.h"
 #include "gameoflife.h"
 
+#define targetFPS (60)
+
 int main()
 {
-    constexpr int targetFPS = 60;
 
     bool grid[screenWidth / squareSize][screenHeight / squareSize] = {0};
 

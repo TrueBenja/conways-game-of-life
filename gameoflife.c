@@ -1,10 +1,11 @@
 #include "gameoflife.h"
 #include <stdio.h>
 
+#define gridWidth (screenWidth / squareSize)
+#define gridHeight (screenHeight / squareSize)
+
 void update_grid(bool grid[][screenHeight / squareSize])
 {
-    constexpr int gridWidth = screenWidth / squareSize;
-    constexpr int gridHeight = screenHeight / squareSize;
     bool tempGrid[gridWidth][gridHeight] = {0};
 
     for (int x = 0; x < gridWidth; ++x)
