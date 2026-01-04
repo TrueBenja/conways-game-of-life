@@ -8,7 +8,7 @@ To compile and run the game, do as follows:
 Install Raylib on your system. Then:
 
 ```console
-$ mkdir build && \
+mkdir build && \
 cd build && \
 cmake .. && \
 cmake --build .
